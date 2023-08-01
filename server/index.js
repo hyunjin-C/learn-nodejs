@@ -4,10 +4,10 @@ const port = 3000;
 
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const config = require("./config/key");
+const config = require("./server/config/key");
 
-const { User } = require("./models/User");
-const { auth } = require("./middleware/auth");
+const { User } = require("./server/models/User");
+const { auth } = require("./server/middleware/auth");
 
 // bodyParser가 클라이언트에서 오는 정보를 서버에서 분석해서 가져올 수 있게 해줌
 // req.body로 클라이언트에서 온 정보를 받아준다.
