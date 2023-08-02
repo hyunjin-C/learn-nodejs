@@ -1,13 +1,13 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 5000;
 
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const config = require("./server/config/key");
+const config = require("./config/key");
 
-const { User } = require("./server/models/User");
-const { auth } = require("./server/middleware/auth");
+const { User } = require("./models/User");
+const { auth } = require("./middleware/auth");
 
 // bodyParser가 클라이언트에서 오는 정보를 서버에서 분석해서 가져올 수 있게 해줌
 // req.body로 클라이언트에서 온 정보를 받아준다.
@@ -102,6 +102,11 @@ app.get("/api/users/logout", auth, (req, res) => {
       return res.json({ success: false, err });
     }
   });
+});
+
+// client와 연결해보기
+app.get("/api/hello", (req, res) => {
+  res.send("안녕하세요~~!");
 });
 
 app.listen(port);
